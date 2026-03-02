@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏠MaisonConnecté - Domotique</title>
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: Arial, sans-serif; background:#000; color:#fff; line-height:1.5;}
+header{display:flex;justify-content:space-between;align-items:center;background:#000;padding:15px 20px;position:sticky;top:0;z-index:1000;border-bottom:2px solid #00ff9c;}
+header h1{font-size:2.2em;color:#fff;text-align:center;width:100%;}
+.burger{display:flex;flex-direction:column;justify-content:space-between;width:25px;height:18px;cursor:pointer;}
+.burger div{height:3px;background:#00ff9c;border-radius:2px;}
+nav{display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:20px;border-radius:8px;overflow:hidden;width:180px;}
+nav a{color:#00ff9c;padding:12px 15px;text-decoration:none;border-bottom:1px solid rgba(0,255,150,.2);}
+nav a:last-child{border-bottom:none;}
+nav a:hover{background:#0f2650;}
+nav.active{display:flex;}
+.container{max-width:1200px;margin:auto;padding:20px;}
+h2{text-align:center;margin-bottom:30px;color:#00ff9c;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
+.card{background: rgba(0,255,150,0.05); border-radius:15px; padding:25px; border:1px solid rgba(0,255,150,0.2); transition:0.3s;}
+.card:hover{transform:translateY(-6px); border-color:#00ff9c;}
+.card h3{margin-bottom:15px; color:#00ff9c;}
+.price{font-size:2em; color:#00ff9c; margin:10px 0;}
+ul {padding-left:18px; line-height:1.6;}
+.cta{text-align:center; margin:40px 0;}
+.cta a{background: linear-gradient(90deg, #00ff9c, #00c878); color:#000; padding:16px 45px; border-radius:40px; text-decoration:none; font-weight:bold; font-size:1.1em; transition:0.3s;}
+.cta a:hover{transform: scale(1.05); box-shadow: 0 0 25px rgba(0,255,150,0.6);}
+.tablette-card{background: rgba(0,255,150,0.05); border-radius:15px; padding:25px; border:1px solid rgba(0,255,150,0.2); margin-top:30px;}
+.tablette-card h3{color:#00ff9c; margin-bottom:15px;}
+footer{background:#000; color:#00ff9c; text-align:center; padding:20px; border-top:2px solid #00ff9c;}
+footer a{color:#00ff9c; text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
 
+<header>
+  <h1>🏠MaisonConnecté</h1>
+  <div class="burger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <nav id="menu">
+    <a href="index.html">Accueil</a>
+    <a href="domotique.html">Domotique</a>
+    <a href="securite.html">Sécurité</a>
+    <a href="config.html">Configuration</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>💡 Packs Domotique Volets</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>Pack S</h3>
+      <div class="price">89 €</div>
+      <ul>
+        <li>1 module Wi-Fi pour volet inclus</li>
+        <li>Option jusqu’à 2 modules (supplément)</li>
+        <li>Scènes Normal / Vacances / Nuit incluses</li>
+        <li>Automatisation lever/coucher du soleil</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Pack M</h3>
+      <div class="price">189 €</div>
+      <ul>
+        <li>3 modules Wi-Fi pour volets inclus</li>
+        <li>Option jusqu’à 4 modules (supplément)</li>
+        <li>Scènes Normal / Vacances / Nuit incluses</li>
+        <li>Automatisation complète et simple</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Pack L</h3>
+      <div class="price">329 €</div>
+      <ul>
+        <li>5 à 8 modules Wi-Fi pour volets</li>
+        <li>Scènes Normal / Vacances / Nuit incluses</li>
+        <li>Automatisation complète maison</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Pack XL</h3>
+      <div class="price">449 €</div>
+      <ul>
+        <li>9 à 12 modules Wi-Fi pour volets</li>
+        <li>Scènes Normal / Vacances / Nuit incluses</li>
+        <li>Automatisation complète + supervision</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Encarts tablette option -->
+  <div class="tablette-card">
+    <h3>💻 Option tablette tactile</h3>
+    <ul>
+      <li>Tablette Android préconfigurée avec app domotique</li>
+      <li>Contrôle des modes et volets</li>
+      <li>WiFi 2.4 GHz obligatoire</li>
+      <li>Support mural non inclus, posable sur meuble</li>
+      <li>Prix : +179 €</li>
+    </ul>
+  </div>
+
+  <div class="cta">
+    <a href="config.html">⚙️ Configurer ma domotique</a>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 🏠MaisonConnecté | <a href="contact.html">Contactez-nous</a>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('menu').classList.toggle('active');}
+</script>
+
+</body>
+</html>
