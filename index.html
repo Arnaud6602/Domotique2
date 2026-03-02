@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏠MaisonConnecté - Accueil</title>
+<style>
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: Arial, sans-serif; background:#000; color:#fff; line-height:1.5;}
+header{
+  display:flex; justify-content:space-between; align-items:center; background:#000;
+  padding:15px 20px; position:sticky; top:0; z-index:1000; border-bottom:2px solid #00ff9c;
+}
+header h1{font-size:2.2em; color:#fff; text-align:center; width:100%;}
+.burger{display:flex; flex-direction:column; justify-content:space-between; width:25px; height:18px; cursor:pointer;}
+.burger div{height:3px; background:#00ff9c; border-radius:2px;}
+nav{display:none; flex-direction:column; background:#000; position:absolute; top:60px; right:20px; border-radius:8px; overflow:hidden; width:180px;}
+nav a{color:#00ff9c; padding:12px 15px; text-decoration:none; border-bottom:1px solid rgba(0,255,150,0.2);}
+nav a:last-child{border-bottom:none;}
+nav a:hover{background:#0f2650;}
+nav.active{display:flex;}
+.container{max-width:1200px; margin:auto; padding:20px;}
+.hero{text-align:center; margin-bottom:50px;}
+.hero h2{font-size:2em; color:#fff; margin-bottom:15px;}
+.hero p{font-size:1.1em; color:#ccc;}
+section{margin-bottom:50px;}
+.grid{display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:25px;}
+.card{background: rgba(0,255,150,0.05); border-radius:15px; padding:25px; border:1px solid rgba(0,255,150,0.2); transition:0.3s;}
+.card:hover{transform:translateY(-6px); border-color:#00ff9c;}
+.card h3{margin-bottom:15px; color:#00ff9c;}
+footer{background:#000; color:#00ff9c; text-align:center; padding:20px; border-top:2px solid #00ff9c;}
+footer a{color:#00ff9c; text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏠MaisonConnecté</h1>
+  <div class="burger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <nav id="menu">
+    <a href="index.html">Accueil</a>
+    <a href="domotique.html">Domotique</a>
+    <a href="securite.html">Sécurité</a>
+    <a href="config.html">Configuration</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="hero">
+    <h2>Votre maison connectée et sécurisée</h2>
+    <p>Contrôlez vos volets, sécurisez votre logement et profitez d'automatisations intelligentes — simplement et efficacement.</p>
+    <p><strong>💡 Pas d’abonnement, système entièrement évolutif selon vos besoins.</strong></p>
+  </div>
+
+  <section>
+    <h2>📦 Nos services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>💡 Domotique Volets</h3>
+        <ul>
+          <li>Contrôle des volets roulants</li>
+          <li>Scènes jour/nuit/vacances</li>
+          <li>Automatisations personnalisables</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🚪 Sécurité</h3>
+        <ul>
+          <li>Capteurs portes/fenêtres</li>
+          <li>Sirène intérieure</li>
+          <li>Caméras fixes intérieures</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🤖 Automatisations</h3>
+        <ul>
+          <li>Modes Normal / Vacances / Nuit</li>
+          <li>Simulation de présence</li>
+          <li>Scénarios intelligents</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  &copy; 2026 🏠MaisonConnecté | <a href="contact.html">Contactez-nous</a>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('menu').classList.toggle('active');}
+</script>
+
+</body>
+</html>
