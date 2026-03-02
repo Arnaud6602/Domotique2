@@ -7,7 +7,18 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:Arial,sans-serif;background:#000;color:#fff;line-height:1.5}
-header{display:flex;justify-content:space-between;align-items:center;background:#000;padding:15px 20px;position:sticky;top:0;border-bottom:2px solid #00ff9c;}
+
+/* Header */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#000;
+  padding:15px 20px;
+  position:sticky;
+  top:0;
+  border-bottom:2px solid #00ff9c;
+}
 header h1{font-size:2.2em;color:#fff;text-align:center;width:100%;}
 .burger{display:flex;flex-direction:column;width:25px;height:18px;cursor:pointer;justify-content:space-between;}
 .burger div{height:3px;background:#00ff9c;border-radius:2px;}
@@ -15,14 +26,36 @@ nav{display:none;flex-direction:column;background:#000;position:absolute;top:60p
 nav a{color:#00ff9c;padding:12px 15px;text-decoration:none;border-bottom:1px solid rgba(0,255,150,.2)}
 nav a:hover{background:#0f2650}
 nav.active{display:flex}
+
+/* Layout */
 .container{max-width:900px;margin:auto;padding:30px 20px}
 h2{text-align:center;margin-bottom:30px;color:#00ff9c}
-.card{background:rgba(0,255,150,.05);border:1px solid rgba(0,255,150,.2);border-radius:15px;padding:25px;margin-bottom:25px}
+
+.card{
+  background:rgba(0,255,150,.05);
+  border:1px solid rgba(0,255,150,.2);
+  border-radius:15px;
+  padding:25px;
+  margin-bottom:25px
+}
+
 label{display:block;margin-top:10px}
 select{width:100%;padding:10px;margin-top:5px;border-radius:8px;border:none}
-.result{background:rgba(0,255,150,.08);border:2px solid #00ff9c;border-radius:15px;padding:25px;text-align:center}
+
+/* Résultat */
+.result{
+  background:rgba(0,255,150,.08);
+  border:2px solid #00ff9c;
+  border-radius:15px;
+  padding:25px;
+  text-align:center
+}
 .result h3{margin-bottom:15px;color:#00ff9c;font-size:1.3em}
 .total{font-size:2.4em;color:#00ff9c;margin-top:15px}
+
+/* Footer */
+footer{text-align:center;padding:20px;border-top:2px solid #00ff9c;color:#00ff9c}
+
 </style>
 </head>
 <body>
@@ -47,10 +80,9 @@ select{width:100%;padding:10px;margin-top:5px;border-radius:8px;border:none}
 <label>Nombre de volets :</label>
 <select id="volets" onchange="calcul()">
   <option value="0">0</option>
-  <option>1</option><option>2</option><option>3</option>
-  <option>4</option><option>5</option><option>6</option>
-  <option>7</option><option>8</option><option>9</option>
-  <option>10</option><option>11</option><option>12</option>
+  <option>1</option><option>2</option><option>3</option><option>4</option>
+  <option>5</option><option>6</option><option>7</option><option>8</option>
+  <option>9</option><option>10</option><option>11</option><option>12</option>
 </select>
 </div>
 
@@ -73,19 +105,23 @@ select{width:100%;padding:10px;margin-top:5px;border-radius:8px;border:none}
 </div>
 
 <div class="card">
-<h3>💻 Poste de commande tactile centralisé</h3>
-<p>Pilotez tous vos volets et automatisations depuis un écran dédié, simple et intuitif.</p>
-<ul>
-<li>Tablette Android préconfigurée</li>
-<li>Application installée et optimisée</li>
-<li>Contrôle des modes : Travail / Repos / Weekend / Vacances</li>
-<li>Commandes Tout ouvrir / Tout fermer</li>
-<li>WiFi 2.4 GHz obligatoire</li>
-<li>Support mural non inclus, posable sur meuble</li>
-</ul>
-<label style="display:block;margin-top:10px;">
-<input type="checkbox" id="tabletteOption" onchange="calcul()"> Ajouter le poste tactile (+179 €)
-</label>
+<h3>💻 Option Tablette Tactile</h3>
+<label>Ajouter tablette tactile :</label>
+<select id="tablette" onchange="calcul()">
+  <option value="0">Non</option>
+  <option value="149">Oui (+149 €)</option>
+</select>
+</div>
+
+<div class="card">
+<h3>🔌 Prises connectées (simulation présence)</h3>
+<label>Nombre de prises :</label>
+<select id="prises" onchange="calcul()">
+  <option value="0">0</option>
+  <option>1</option>
+  <option>2</option>
+</select>
+<p style="font-size:0.9em;color:#ccc">Disponible uniquement pour packs M et supérieurs</p>
 </div>
 
 <div class="result">
@@ -100,31 +136,37 @@ select{width:100%;padding:10px;margin-top:5px;border-radius:8px;border:none}
 <script>
 function toggleMenu(){document.getElementById('menu').classList.toggle('active');}
 
+// Packs volets avec prix corrigés
 function voletCalc(n){
-  const pack = ["—","S","S + option","M","M + option","M + 2 options","L","L + option","L + 2 options","XL","XL + option","XL + 2 options","XL"];
-  const prix = [0,89,168,219,298,377,399,478,557,649,718,787,849];
-  return [pack[n], prix[n]];
+  const pack = ["—","S","S+","M","M+","L","XL"];
+  const prix = [0,89,169,249,329,399,649];
+  return [pack[n] || pack[pack.length-1], prix[n] || prix[prix.length-1]];
 }
+
+// Packs sécurité
 function securiteCalc(n){
-  const pack = ["—","S","S + option","M","M + option","M + 2 options","L","L + option","L + 2 options","XL","XL + option","XL + 2 options","XL"];
-  const prix = [0,149,198,219,268,317,319,368,417,449,498,547,599];
-  return [pack[n], prix[n]];
+  const pack = ["—","S","S+","M","M+","L","XL"];
+  const prix = [0,149,198,219,268,317,449];
+  return [pack[n] || pack[pack.length-1], prix[n] || prix[prix.length-1]];
 }
+
 function calcul(){
   let v = parseInt(document.getElementById("volets").value);
   let d = parseInt(document.getElementById("detecteurs").value);
   let c = parseInt(document.getElementById("cameras").value);
-  let tabletteOpt = document.getElementById("tabletteOption").checked ? 179 : 0;
+  let t = parseInt(document.getElementById("tablette").value);
+  let p = parseInt(document.getElementById("prises").value);
 
   let pv = voletCalc(v);
   let ps = securiteCalc(d);
 
-  let total = pv[1] + ps[1] + (c * 69) + tabletteOpt;
+  let total = pv[1] + ps[1] + (c * 69) + t + (p * 39); // 39 € par prise
 
   let reco = [];
   if(v>0) reco.push(`Volets : Pack ${pv[0]}`);
   if(d>0) reco.push(`Sécurité : Pack ${ps[0]}`);
-  if(document.getElementById("tabletteOption").checked) reco.push("Option tablette tactile");
+  if(p>0) reco.push(`Prises : ${p} inclues`);
+  if(t>0) reco.push("Tablette tactile");
 
   document.getElementById("packReco").innerHTML = "🎯 Pack recommandé : " + (reco.length?reco.join(" + "):"—");
   document.getElementById("prix").innerHTML = total + " €";
