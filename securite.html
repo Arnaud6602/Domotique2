@@ -4,41 +4,156 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🏠MaisonConnecté - Sécurité</title>
+
 <style>
-* {margin:0; padding:0; box-sizing:border-box;}
-body {font-family: Arial, sans-serif; background:#000; color:#fff; line-height:1.5;}
-header{display:flex;justify-content:space-between;align-items:center;background:#000;padding:15px 20px;position:sticky;top:0;z-index:1000;border-bottom:2px solid #00ff9c;}
-header h1{font-size:2.2em;color:#fff;text-align:center;width:100%;}
-.burger{display:flex;flex-direction:column;justify-content:space-between;width:25px;height:18px;cursor:pointer;}
-.burger div{height:3px;background:#00ff9c;border-radius:2px;}
-nav{display:none;flex-direction:column;background:#000;position:absolute;top:60px;right:20px;border-radius:8px;overflow:hidden;width:180px;}
-nav a{color:#00ff9c;padding:12px 15px;text-decoration:none;border-bottom:1px solid rgba(0,255,150,.2);}
-nav a:last-child{border-bottom:none;}
-nav a:hover{background:#0f2650;}
-nav.active{display:flex;}
-.container{max-width:1200px;margin:auto;padding:20px;}
-h2{text-align:center;margin-bottom:30px;color:#00ff9c;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px;}
-.card{background: rgba(0,255,150,0.05); border-radius:15px; padding:25px; border:1px solid rgba(0,255,150,0.2); transition:0.3s;}
-.card:hover{transform:translateY(-6px); border-color:#00ff9c;}
-.card h3{margin-bottom:15px; color:#00ff9c;}
-.price{font-size:2em; color:#00ff9c; margin:10px 0;}
-ul {padding-left:18px; line-height:1.6;}
-.cta{text-align:center; margin:40px 0;}
-.cta a{background: linear-gradient(90deg, #00ff9c, #00c878); color:#000; padding:16px 45px; border-radius:40px; text-decoration:none; font-weight:bold; font-size:1.1em; transition:0.3s;}
-.cta a:hover{transform: scale(1.05); box-shadow: 0 0 25px rgba(0,255,150,0.6);}
-.tablette-card{background: rgba(0,255,150,0.05); border-radius:15px; padding:25px; border:1px solid rgba(0,255,150,0.2); margin-top:30px;}
-.tablette-card h3{color:#00ff9c; margin-bottom:15px;}
-footer{background:#000; color:#00ff9c; text-align:center; padding:20px; border-top:2px solid #00ff9c;}
-footer a{color:#00ff9c; text-decoration:none;}
-footer a:hover{text-decoration:underline;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:Arial,sans-serif;background:#000;color:#fff;line-height:1.5;}
+
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#000;
+  padding:15px 20px;
+  position:sticky;
+  top:0;
+  border-bottom:2px solid #00ff9c;
+}
+
+header h1{
+  font-size:2.2em;
+  color:#fff;
+  text-align:center;
+  width:100%;
+}
+
+.burger{
+  display:flex;
+  flex-direction:column;
+  width:25px;
+  height:18px;
+  cursor:pointer;
+  justify-content:space-between;
+}
+
+.burger div{
+  height:3px;
+  background:#00ff9c;
+  border-radius:2px;
+}
+
+nav{
+  display:none;
+  flex-direction:column;
+  background:#000;
+  position:absolute;
+  top:60px;
+  right:20px;
+  border-radius:8px;
+  width:180px;
+  overflow:hidden;
+}
+
+nav a{
+  color:#00ff9c;
+  padding:12px 15px;
+  text-decoration:none;
+  border-bottom:1px solid rgba(0,255,150,.2);
+}
+
+nav a:hover{
+  background:#0f2650;
+}
+
+nav.active{
+  display:flex;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+h2{
+  text-align:center;
+  margin-bottom:40px;
+  color:#00ff9c;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:rgba(0,255,150,.05);
+  border:1px solid rgba(0,255,150,.2);
+  border-radius:15px;
+  padding:25px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  border-color:#00ff9c;
+}
+
+.card h3{
+  margin-bottom:15px;
+  color:#00ff9c;
+}
+
+.price{
+  font-size:2em;
+  color:#00ff9c;
+  margin:15px 0;
+}
+
+ul{
+  padding-left:18px;
+  line-height:1.6;
+}
+
+.cta{
+  text-align:center;
+  margin-top:50px;
+}
+
+.cta a{
+  background:linear-gradient(90deg,#00ff9c,#00c878);
+  color:#000;
+  padding:16px 45px;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:1.1em;
+  transition:0.3s;
+}
+
+.cta a:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px rgba(0,255,150,.6);
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  border-top:2px solid #00ff9c;
+  color:#00ff9c;
+  margin-top:60px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
   <h1>🏠MaisonConnecté</h1>
-  <div class="burger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <div class="burger" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
   <nav id="menu">
     <a href="index.html">Accueil</a>
     <a href="domotique.html">Domotique</a>
@@ -48,78 +163,75 @@ footer a:hover{text-decoration:underline;}
 </header>
 
 <div class="container">
-  <h2>🚨 Packs Sécurité Connectée</h2>
-  <div class="grid">
 
-    <div class="card">
-      <h3>Pack S</h3>
-      <div class="price">149 €</div>
-      <ul>
-        <li>1 passerelle Zigbee incluse</li>
-        <li>1 capteur portes/fenêtres inclus (option jusqu’à 2)</li>
-        <li>1 sirène intérieure</li>
-        <li>1 caméra fixe intérieure</li>
-      </ul>
-    </div>
+<h2>🔐 Packs Sécurité Connectée</h2>
 
-    <div class="card">
-      <h3>Pack M</h3>
-      <div class="price">219 €</div>
-      <ul>
-        <li>1 passerelle Zigbee</li>
-        <li>4 capteurs portes/fenêtres inclus (option jusqu’à 6)</li>
-        <li>1 sirène intérieure</li>
-        <li>1 caméra fixe intérieure</li>
-      </ul>
-    </div>
+<div class="grid">
 
-    <div class="card">
-      <h3>Pack L</h3>
-      <div class="price">329 €</div>
-      <ul>
-        <li>1 passerelle Zigbee</li>
-        <li>6 capteurs portes/fenêtres inclus (option jusqu’à 8)</li>
-        <li>1 sirène intérieure</li>
-        <li>2 caméras fixes intérieures</li>
-      </ul>
-    </div>
+<div class="card">
+  <h3>Pack S</h3>
+  <div class="price">149 €</div>
+  <ul>
+    <li>1 capteur d’ouverture porte/fenêtre</li>
+    <li>1 caméra intérieure HD</li>
+    <li>1 sirène connectée</li>
+    <li>Notifications en temps réel</li>
+    <li>Contrôle via application mobile</li>
+  </ul>
+</div>
 
-    <div class="card">
-      <h3>Pack XL</h3>
-      <div class="price">449 €</div>
-      <ul>
-        <li>1 passerelle Zigbee</li>
-        <li>8 capteurs portes/fenêtres inclus (option jusqu’à 12)</li>
-        <li>1 sirène intérieure</li>
-        <li>3 caméras fixes intérieures</li>
-      </ul>
-    </div>
+<div class="card">
+  <h3>Pack M</h3>
+  <div class="price">219 €</div>
+  <ul>
+    <li>4 capteurs d’ouverture</li>
+    <li>1 caméra intérieure HD</li>
+    <li>1 sirène connectée</li>
+    <li>Alertes instantanées</li>
+    <li>Scénarios automatiques (absence / nuit)</li>
+  </ul>
+</div>
 
-  </div>
+<div class="card">
+  <h3>Pack L</h3>
+  <div class="price">329 €</div>
+  <ul>
+    <li>6 capteurs d’ouverture</li>
+    <li>2 caméras intérieures HD</li>
+    <li>1 sirène connectée</li>
+    <li>Détection intelligente</li>
+    <li>Automatisation complète sécurité</li>
+  </ul>
+</div>
 
-  <!-- Encarts tablette option -->
-  <div class="tablette-card">
-    <h3>💻 Option tablette tactile</h3>
-    <ul>
-      <li>Tablette Android préconfigurée avec app sécurité</li>
-      <li>Contrôle des modes et caméras</li>
-      <li>WiFi 2.4 GHz obligatoire</li>
-      <li>Support mural non inclus, posable sur meuble</li>
-      <li>Prix : +179 €</li>
-    </ul>
-  </div>
+<div class="card">
+  <h3>Pack XL</h3>
+  <div class="price">449 €</div>
+  <ul>
+    <li>8 capteurs d’ouverture</li>
+    <li>3 caméras intérieures HD</li>
+    <li>1 sirène connectée</li>
+    <li>Couverture maison complète</li>
+    <li>Scénarios avancés personnalisés</li>
+  </ul>
+</div>
 
-  <div class="cta">
-    <a href="config.html">⚙️ Configurer ma sécurité</a>
-  </div>
+</div>
+
+<div class="cta">
+  <a href="config.html">⚙️ Configurer ma sécurité</a>
+</div>
+
 </div>
 
 <footer>
-  &copy; 2026 🏠MaisonConnecté | <a href="contact.html">Contactez-nous</a>
+© 2026 🏠MaisonConnecté
 </footer>
 
 <script>
-function toggleMenu(){document.getElementById('menu').classList.toggle('active');}
+function toggleMenu(){
+  document.getElementById('menu').classList.toggle('active');
+}
 </script>
 
 </body>
